@@ -254,6 +254,7 @@
         }
         //전달할 data JSON으로 만듭니다.
         let data = {'comment':comment,'articleId':[[${id}]]};
+
         //POST /api/articles 에 data를 전달합니다.
         $.ajax({
           type: "POST",
@@ -275,7 +276,7 @@
       let id =[[${id}]];
       $.ajax({
         type: 'GET',
-        url: `/articles/${id}/comments`,
+        url: `/blos/${id}/comments`,
         success: function (response) {
           console.log(response)
           for (let i =0; i<response.length;i++){
@@ -360,7 +361,7 @@
       //PUT /api/memos/{id} 에 data를 전달합니다.
       $.ajax({
         type: "PUT",
-        url: `/api/articles/{articleId}/comments/${commentId}`,
+        url: `/api/blogs/{blogId}/comments/${commentId}`,
         contentType: "application/json",
         data: JSON.stringify(data),
         success: function (response) {
