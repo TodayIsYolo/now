@@ -253,7 +253,7 @@
           return;
         }
         //전달할 data JSON으로 만듭니다.
-        let data = {'comment':comment,'articleId':[[${id}]]};
+        let data = {'comment':comment,'blogId':[[${id}]]};
 
         //POST /api/articles 에 data를 전달합니다.
         $.ajax({
@@ -272,14 +272,14 @@
 
 
     /////////댓글 전체 불러오기//////////////
+
     function getComment() {
       let id =[[${id}]];
       $.ajax({
         type: 'GET',
-        url: `/blos/${id}/comments`,
+        url: `/blogs/${id}/comments`,
         success: function (response) {
-          console.log(response)
-          for (let i =0; i<response.length;i++){
+          for(let i=0; i<response.length; i++){
             let comments = response[i];
             let comment = comments.comment;
             let username = comments.username;
@@ -291,6 +291,30 @@
         }
       })
     }
+
+
+    //
+    // function getComment() {
+    //   alert("댓글확인")
+    //   let id =[[${id}]];
+    //   $.ajax({
+    //     type: 'GET',
+    //     url: `/blogs/${id}/comments`,
+    //     success: function (response) {
+    //       console.log(response)
+    //       for (let i =0; i<response.length;i++){
+    //         let comments = response[i];
+    //         let comment = comments.comment;
+    //         let username = comments.username;
+    //         let modifiedAt = comments.modifiedAt;
+    //         let commentId = comments.id;
+    //         console.log(comment,username,modifiedAt)
+    //         commentAddHTML(comment,username, modifiedAt,commentId);
+    //       }
+    //     }
+    //   })
+    // }
+
     function commentAddHTML(comment,username, modifiedAt, commentId){
       let tempHtml = makeComments(comment,username, modifiedAt, commentId);
       $('#cards-box').append(tempHtml);
@@ -304,6 +328,7 @@
       if (usernames === username){
           hide=""
       }
+
       return `<div class="box comment-box">
   <article class="media">
     <div class="media-content">
