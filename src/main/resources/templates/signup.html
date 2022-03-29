@@ -1,0 +1,160 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport"-->
+<!--          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+<!--    <link rel="preconnect" href="https://fonts.gstatic.com">-->
+<!--    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">-->
+<!--    <link rel="stylesheet" type="text/css" href="/css/style2.css">-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>회원가입 페이지</title>-->
+<!--    <script>-->
+<!--        function onclickAdmin() {-->
+<!--// Get the checkbox-->
+<!--            var checkBox = document.getElementById("admin-check");-->
+<!--// Get the output text-->
+<!--            var box = document.getElementById("admin-token");-->
+
+<!--// If the checkbox is checked, display the output text-->
+<!--            if (checkBox.checked == true){-->
+<!--                box.style.display = "block";-->
+<!--            } else {-->
+<!--                box.style.display = "none";-->
+<!--            }-->
+<!--        }-->
+
+
+<!--    </script>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div id="login-form">-->
+<!--    <div id="login-title">Sign up Select Shop</div>-->
+
+<!--    <form action="/user/signup" method="post">-->
+<!--        <div class="login-id-label">Username</div>-->
+<!--        <input type="text" name="username" placeholder="Username" class="login-input-box">-->
+
+<!--        <div class="login-id-label">Password</div>-->
+<!--        <input type="password" name="password" class="login-input-box">-->
+
+<!--        <div class="login-id-label">Password 확인</div>-->
+<!--        <input id="pw-check" type="password" name="password" class="login-input-box">-->
+
+<!--        <div class="login-id-label">E-mail</div>-->
+<!--        <input type="text" name="email" placeholder="E-mail" class="login-input-box">-->
+
+<!--        <div>-->
+<!--            <input id="admin-check" type="checkbox" name="admin" onclick="onclickAdmin()" style="margin-top: 40px;">관리자-->
+<!--            <input id="admin-token" type="password" name="adminToken" placeholder="관리자 암호" class="login-input-box" style="display:none">-->
+<!--        </div>-->
+<!--        <button id="login-id-submit">회원 가입</button>-->
+<!--    </form>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+
+
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<!--xmlns="http://www.w3.org/1999/xhtml"-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <!--  og-->
+    <meta property="og:title" content="just a bulletin board">
+    <meta property="og:description" content="그냥 게시판 입니다!!">
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+
+    <title>just a bulletin board</title>
+    <style>
+        .wrap{
+            width: 300px;
+            margin: 200px auto;
+        }
+        .a{
+            margin-top: 30px;
+            width: 300px;
+        }
+        .b{
+            margin-top: 15px;
+        }
+        .c{margin-top: 15px}
+        .d{
+            margin-top: 30px;
+            width: 300px;
+        }
+        .help-btn{
+            font-size: 14px;
+            color: #8e8383;
+        }
+    </style>
+    <script th:inline="javascript">
+        var usernames = /*[[${#authentication.name}]]*/ 'null'
+        console.log(usernames)
+        $(function(){
+            if (usernames != 'anonymousUser'){
+                alert("이미 로그인 한 사용자 입니다.")
+                window.location.assign('/')
+            }
+        });
+
+        function signup(){
+            let data = {
+                username: $('#nickname').val(),
+                password: $('#password').val(),
+                passwordCheck: $('#passwordCheck').val()
+            };
+            $.ajax({
+                type: "POST",
+                url: "/api/signup",
+                contentType: "application/json", // JSON 형식으로 전달함을 알리기
+                data: JSON.stringify(data),
+                success: function (response) {
+                    alert(String(response))
+                    if (response=="회원가입을 축하합니다!"){
+                        window.location.assign('/')
+                    }
+                }
+            })
+        }
+
+
+    </script>
+</head>
+<body>
+<section class="hero">
+    <div class="hero-body">
+        <p class="title">
+            The bulletin board.
+        </p>
+        <p class="subtitle">
+            It's just a bulletin board.
+        </p>
+    </div>
+</section>
+<div id="login-form" class="wrap">
+    <form action="/user/signup" method="post">
+        <input class="input a" type="text" id="nickname" name="username" placeholder="아이디">
+        <p id="help-id" class="help-btn">아이디는 3-10자의 영문과 숫자만 입력 가능합니다.</p>
+        <input class="input b" type="password" name="password" id="password" placeholder="비밀번호">
+        <p  class="help-btn">비밀번호는 4자 이상 입력해주세요</p>
+        <input class="input c" id="passwordCheck" name="passwordCheck" type="password" placeholder="비밀번호 확인">
+    </form>
+    <button id="login-id-submit" type="button" class="button is-primary d" onclick="signup()" >회원가입</button>
+</div>
+</body>
+</html>

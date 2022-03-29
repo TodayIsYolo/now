@@ -1,0 +1,56 @@
+.main {
+    width: 100%;
+    height: 150px;
+    background-color: cornflowerblue;
+    text-align: center;
+    color: azure;
+    padding-top: 45px;
+    font-size: 40px;
+}
+
+.head{
+    width: 1200px;
+    flex-direction: row;
+}
+.name{
+    width: 700px;
+
+}
+.date{
+    margin-left: 50px;
+    color: darkgrey;
+
+}
+.card{
+    width: 1200px;
+    margin: 20px auto 0px auto;
+    border-radius: 10px;
+}
+.section{
+    width: 1200px;
+    margin: auto;
+}
+.content {
+    margin-top: 10px;
+}
+.bt{
+    flex-direction: row;
+    margin-bottom: 5px;
+    margin-left: 500px;
+
+}
+.bt > img{
+    margin-right: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

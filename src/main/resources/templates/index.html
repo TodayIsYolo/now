@@ -1,0 +1,370 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--  <meta charset="UTF-8">-->
+<!--  <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--  <meta property="og:title" content="나의 블로그">-->
+<!--  <meta property="og:description" content="블로그 입니다.">-->
+<!--  <meta property="og:image" content="images/blog.jpg">-->
+<!--  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"-->
+<!--        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">-->
+<!--  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">-->
+
+<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+
+<!--  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"-->
+<!--          integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"-->
+<!--          crossorigin="anonymous"></script>-->
+<!--  <script src="basic.js"></script>-->
+<!--  <link rel="stylesheet" type="text/css" href="/css/style.css">-->
+
+
+<!--</head>-->
+<!--<body>-->
+<!--<div class="main">-->
+<!--  <H1>Blog</H1>-->
+<!--</div>-->
+
+<!--<section class="section">-->
+<!--  <article class="media">-->
+<!--    <div class="media-content">-->
+<!--      <div class="field">-->
+<!--        <p class="control">-->
+<!--          <input id="input-post" class="input is-rounded" placeholder="글쓰기"-->
+<!--                 onclick='$("#modal-post").addClass("is-active")'>-->
+<!--        </p>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </article>-->
+<!--</section>-->
+
+<!--<div class="modal" id="modal-post">-->
+<!--  <div class="modal-background" onclick='$("#modal-post").removeClass("is-active")'></div>-->
+<!--  <div class="modal-content">-->
+<!--    <div class="box">-->
+<!--      <article class="media">-->
+<!--        <div class="media-content">-->
+<!--          <div class="field">-->
+<!--            <p class="control">-->
+<!--            <div class="form-floating mb-3">-->
+<!--              <input type="email" class="form-control" id="post-title" placeholder="제목" >-->
+<!--              <label for="post-title">제목</label>-->
+<!--            </div>-->
+<!--            <div class="form-floating">-->
+<!--              <input type="email" class="form-control" id="post-username" placeholder="작성자">-->
+<!--              <label for="post-username">작성자</label>-->
+<!--            </div>-->
+
+<!--            <div class="content">-->
+<!--                                        <textarea id="post-content" class="textarea"-->
+<!--                                                  placeholder="내용"></textarea></div>-->
+<!--            </p>-->
+<!--          </div>-->
+<!--          <nav class="level is-mobile">-->
+<!--            <div class="level-left">-->
+<!--            </div>-->
+<!--            <div class="level-right">-->
+<!--              <div class="level-item">-->
+<!--                <a class="button is-sparta" onclick="writePost()">글쓰기</a>-->
+<!--              </div>-->
+<!--              <div class="level-item">-->
+<!--                <a class="button is-sparta is-outlined"-->
+<!--                   onclick='$("#modal-post").removeClass("is-active")'>취소</a>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </nav>-->
+<!--        </div>-->
+<!--      </article>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <button class="modal-close is-large" aria-label="close"-->
+<!--          onclick='$("#modal-post").removeClass("is-active")'></button>-->
+<!--</div>-->
+
+
+
+
+<!--<div class="modal" id="modal-submit">-->
+<!--  <div class="modal-background" onclick='$("#modal-submit").removeClass("is-active")'></div>-->
+<!--  <div class="modal-content">-->
+<!--    <div class="box">-->
+<!--      <article class="media">-->
+<!--        <div class="media-content">-->
+<!--          <div class="field">-->
+<!--            <p class="control">-->
+<!--            <div class="form-floating mb-3">-->
+<!--              <input type="email" class="form-control" id="submit-title" placeholder="제목" >-->
+<!--              <label>제목</label>-->
+<!--            </div>-->
+<!--            <div class="form-floating">-->
+<!--              <input type="email" class="form-control" id="submit-username" placeholder="작성자">-->
+<!--              <label>작성자</label>-->
+<!--            </div>-->
+
+<!--            <div class="content">-->
+<!--                                        <textarea id="submit-content" class="textarea"-->
+<!--                                                  placeholder="내용"></textarea></div>-->
+<!--            </p>-->
+<!--          </div>-->
+<!--          <nav class="level is-mobile">-->
+<!--            <div class="level-left">-->
+<!--            </div>-->
+<!--            <div class="level-right">-->
+<!--              <div class="level-item" id="submitbt">-->
+
+<!--              </div>-->
+<!--              <div class="level-item">-->
+<!--                <a class="button is-sparta is-outlined"-->
+<!--                   onclick='$("#modal-submit").removeClass("is-active")'>취소</a>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </nav>-->
+<!--        </div>-->
+<!--      </article>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <button class="modal-close is-large" aria-label="close"-->
+<!--          onclick='$("#modal-submit").removeClass("is-active")'></button>-->
+<!--</div>-->
+
+
+
+
+
+<!--<div id="card-box">-->
+
+<!--</div>-->
+
+<!--<div class="show">-->
+<!--  <div class="modal" id="modal-check">-->
+<!--    <div class="modal-background" onclick='$("#modal-check").removeClass("is-active")'></div>-->
+<!--    <div class="modal-content">-->
+<!--      <div class="box">-->
+<!--        <article class="media">-->
+<!--          <div class="media-content">-->
+<!--            <div class="field" id="one-box">-->
+
+<!--            </div>-->
+<!--          </div>-->
+<!--        </article>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <button class="modal-close is-large" aria-label="close"-->
+<!--            onclick='$("#modal-check").removeClass("is-active")'></button>-->
+<!--  </div>-->
+<!--</div>-->
+
+
+
+
+
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+
+  <!-- Webpage Title -->
+  <title>just a bulletin board</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!--  og-->
+  <meta property="og:title" content="just a bulletin board">
+  <meta property="og:description" content="그냥 게시판 입니다!!">
+  <!-- Bulma CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+  <!-- Font Awesome CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+  <!-- JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      // HTML 문서를 로드할 때마다 실행,
+      getMessages();
+
+    })
+
+
+
+    function getMessages() {
+    $.ajax({
+        type: 'GET',
+        url: '/api/blogs',
+        success: function (response) {
+            for(let i=0; i<response.length; i++){
+                let blog = response[i];
+                let id = blog.id;
+                let username = blog.username;
+                let title = blog.title;
+                let modifiedAt = blog.modifiedAt;
+                addHTML(id, title ,username, modifiedAt)
+            }
+        }
+    })
+}
+
+
+    /////////게시글 전체 불러오기//////////////
+
+    // function getMessages() {
+    //   $.ajax({
+    //     type: 'GET',
+    //     url: '/api/blogs',
+    //     success: function (response) {
+    //       console.log(response)
+    //       for (let i = 0; i < response.length; i++) {
+    //         let blog = response[i];
+    //         let id = blog.id;
+    //         let username = blog.username
+    //         // let username = article.username;
+    //         let title = blog.title;
+    //         // let contents = blog.contents;
+    //         let modifiedAt = blog.modifiedAt;
+    //         console.log(title)
+    //         addHTML(id, title, username, modifiedAt);
+    //       }
+    //     }
+    //   })
+    // }
+    function addHTML(id, title, username, modifiedAt) {
+      let tempHtml = `<div class="box">
+                                <article>
+                                    <a href="/detail/${id}" class="boxTitle" id="${id}-title">${title}</a>
+                                    <div class="metadata">
+                                                <div id="${id}-username" class="username">
+                                                    ${username}
+                                                </div>
+                                                <div class="date">
+                                                    ${modifiedAt}
+                                                </div>
+                                            </div>
+                                </article>
+                                </div>`
+      $('#cards-box').append(tempHtml);
+    }
+
+  </script>
+  <style>
+
+
+    .box {
+      width: 650px;
+      text-align: center;
+      margin: 50px auto 10px auto;
+      height: 80px
+    }
+
+    .boxTitle {
+      font-size: x-large;
+      text-align: center;
+      color: black;
+
+    }
+
+    .username {
+      margin-left: 20px;
+    }
+
+    .metadata {
+      position: relative;
+      display: flex;
+      font-family: 'Spoqa Han Sans';
+      font-size: 11px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1;
+      letter-spacing: -0.77px;
+      text-align: left;
+      color: #adb5bd;
+      height: 14px;
+      padding: 10px 23px;
+    }
+
+    .metadata {
+      width: 400px;
+      margin-left: 400px;
+    }
+
+    .write-button{
+      width: 300px;
+      margin: 50px auto auto auto;
+      display: block;
+    }
+    .search-wrap{
+      width: 410px;
+      margin: auto;
+    }
+    .search-input{
+      width: 300px;
+      margin: auto;
+      float: left;
+      display: block;
+    }
+    .search-button{
+      float: right;
+    }
+
+    .nav {
+      width: 530px;
+      margin: 30px auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    .nav div {
+      cursor: pointer;
+    }
+
+    .nav div.active {
+      font-weight: 700;
+    }
+
+    .search-result-box{
+      margin-top: 100px;
+      margin-bottom: 30px;
+      display: block;
+    }
+    .login-btn{
+      float: right;
+      margin-right: 30px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+<section class="hero">
+  <div class="hero-body">
+    <p class="title">
+      The bulletin board.
+    </p>
+    <a sec:authorize="!isAuthenticated()" class="login-btn" id="login-text" href="/user/login">
+      로그인
+    </a>
+
+    <form id="my_form" method="post" action="/user/logout">
+      <a sec:authorize="isAuthenticated()" class="login-btn" id="logout-text" href="javascript:{}" onclick="document.getElementById('my_form').submit();">로그아웃</a>
+    </form>
+
+  </div>
+</section>
+
+<button class="button write-button" onclick="window.location.href='/post'">글 쓰러 가기</button>
+<div id="cards-box"></div>
+</body>
+</html>
